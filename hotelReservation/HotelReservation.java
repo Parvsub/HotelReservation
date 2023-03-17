@@ -1,11 +1,21 @@
 package com.hotelReservation;
-public class HotelReservation {
+public class HotelReservation implements Comparable<HotelReservation> {
     private String hotelName;
     private int rates;
+    private float weekendRate;
 
-    public HotelReservation(String hotelName, int rates) {
+    public float getWeekendRate() {
+        return weekendRate;
+    }
+
+    public void setWeekendRate(float weekendRate) {
+        this.weekendRate = weekendRate;
+    }
+
+    public HotelReservation(String hotelName, int rates, float weekendRate) {
         this.hotelName = hotelName;
         this.rates = rates;
+        this.weekendRate = weekendRate;
     }
 
     public HotelReservation() {

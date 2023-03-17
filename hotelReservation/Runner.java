@@ -2,8 +2,6 @@ package com.hotelReservation;
 
 import java.util.Scanner;
 import java.text.ParseException;
-import java.util.Scanner;
-
 public class Runner{
     Scanner scanner = new Scanner(System.in);
     HotelManage hotelObj = new HotelManage();
