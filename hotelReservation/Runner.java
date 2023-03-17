@@ -38,8 +38,11 @@ public class Runner{
         String name = scanner.next();
         System.out.println("Enter weekday rate ");
         float rate = scanner.nextFloat();
+        System.out.println("Enter weekend rate");
+        float weekendRate = scanner.nextFloat();
         hotel.setHotelName(hotel.getHotelName());
         hotel.setRates(hotel.getRates());
+        hotel.setWeekendRate(hotel.getWeekendRate());
         hotelObj.hotelList.add(hotel);
         System.out.println(hotelObj.hotelList);
     }
