@@ -19,7 +19,7 @@ public class HotelReservationSystem {
         List.add(hotelReservation);
         System.out.println(List);
     }
-
+   
     public static void main(String[] args) {
         addHotelInformation();
     }

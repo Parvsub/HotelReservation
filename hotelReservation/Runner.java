@@ -3,8 +3,9 @@ package com.hotelReservation;
 import java.util.Scanner;
 import java.text.ParseException;
 public class Runner{
-    Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
     HotelManage hotelObj = new HotelManage();
+
 
     public static void main (String[] args) throws ParseException {
 
@@ -12,6 +13,7 @@ public class Runner{
 
         Runner application = new Runner();
         application.provideUserOption();
+        AddRatings();
     }
 
     public void provideUserOption() throws ParseException {
@@ -45,6 +47,17 @@ public class Runner{
         hotel.setWeekendRate(hotel.getWeekendRate());
         hotelObj.hotelList.add(hotel);
         System.out.println(hotelObj.hotelList);
+    }
+    public static void AddRatings(){
+        System.out.println("Enter the ratings");
+        int ratings = scanner.nextInt();
+        if(ratings==3){
+            System.out.println("Lakewood");
+        } else if (ratings==4) {
+            System.out.println("Bridgewood");
+        } else if (ratings==5) {
+            System.out.println("Ridgewood");
+        }
     }
 
     public void findCheapestHotel() throws ParseException {
