@@ -4,6 +4,23 @@ public class HotelReservation implements Comparable<HotelReservation> {
     private int rates;
     private float weekendRate;
 
+    public int getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(int ratings) {
+        this.ratings = ratings;
+    }
+
+    private int ratings;
+
+    public HotelReservation(String hotelName, int rates, float weekendRate, int ratings) {
+        this.hotelName = hotelName;
+        this.rates = rates;
+        this.weekendRate = weekendRate;
+        this.ratings = ratings;
+    }
+
     public float getWeekendRate() {
         return weekendRate;
     }
@@ -12,11 +29,6 @@ public class HotelReservation implements Comparable<HotelReservation> {
         this.weekendRate = weekendRate;
     }
 
-    public HotelReservation(String hotelName, int rates, float weekendRate) {
-        this.hotelName = hotelName;
-        this.rates = rates;
-        this.weekendRate = weekendRate;
-    }
 
     public HotelReservation() {
 

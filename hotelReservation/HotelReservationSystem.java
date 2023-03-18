@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class HotelReservationSystem {
+    private static int ratings;
     Scanner scanner = new Scanner(System.in);
     public  static void addHotelInformation() {
         ArrayList<HotelReservation> List = new ArrayList<>();
@@ -15,7 +16,7 @@ public class HotelReservationSystem {
         System.out.println("Enter the WeekendRate");
         float Weekendrates = scanner.nextFloat();
 
-        HotelReservation hotelReservation = new HotelReservation(HotelName, HotelRates,Weekendrates);
+        HotelReservation hotelReservation = new HotelReservation(HotelName, HotelRates,Weekendrates,ratings);
         List.add(hotelReservation);
         System.out.println(List);
     }

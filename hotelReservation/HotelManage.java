@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 public class HotelManage {
     private static Comparator<? super HotelReservation> minComparator;
+    public HotelReservation cheapestHotel;
     Scanner scanner = new Scanner(System.in);
     static List<HotelReservation> hotelList = new ArrayList<>();
 

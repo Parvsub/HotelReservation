@@ -1,34 +1,39 @@
 package com.hotelReservation;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Scanner;
 import java.text.ParseException;
-public class Runner{
+public class Runner {
     static Scanner scanner = new Scanner(System.in);
-    HotelManage hotelObj = new HotelManage();
+    static HotelManage hotelObj = new HotelManage();
 
 
-    public static void main (String[] args) throws ParseException {
+    public static void main(String[] args) throws ParseException {
 
         System.out.println("Welcome to Hotel Reservation System");
 
         Runner application = new Runner();
         application.provideUserOption();
-        AddRatings();
+        findBestRatedHotel();
+    }
+
+    private static void findBestRatedHotel() {
     }
 
     public void provideUserOption() throws ParseException {
-        while(true) {
+        while (true) {
             System.out.println("Choose Options " +
                     "\n1. Add Hotel" +
-                    "\n2. Find Cheapest Hotel " );
+                    "\n2. Find Cheapest Hotel ");
             String userOption = scanner.next();
             switch (userOption) {
-                case "1" :
+                case "1":
                     addHotel();
                     break;
                 case "2":
-                    findCheapestHotel();
-                case "10" :
+                    hotelObj.findCheapestHotel(0);
+                case "10":
                     System.exit(0);
             }
         }
@@ -48,19 +53,9 @@ public class Runner{
         hotelObj.hotelList.add(hotel);
         System.out.println(hotelObj.hotelList);
     }
-    public static void AddRatings(){
-        System.out.println("Enter the ratings");
-        int ratings = scanner.nextInt();
-        if(ratings==3){
-            System.out.println("Lakewood");
-        } else if (ratings==4) {
-            System.out.println("Bridgewood");
-        } else if (ratings==5) {
-            System.out.println("Ridgewood");
-        }
-    }
 
     public void findCheapestHotel() throws ParseException {
+
         System.out.println("Enter check-In Date : (dd/mm/yyyy)");
         String checkInDate = scanner.next();
         System.out.println("Enter check-Out Date : (dd/mm/yyyy)");
@@ -71,18 +66,31 @@ public class Runner{
 
         int days = HotelManage.findDateDifference(checkInDate, checkOutDate);
         System.out.println("Number of days stying in hotel " + days);
+        hotelObj.cheapestHotel = HotelManage.findCheapestHotel(days);
+        HotelReservation cheapestHotel = null;
+        float totalRate;
+        totalRate = cheapestHotel.getRatings() * days;
 
-        HotelReservation cheapestHotel = HotelManage.findCheapestHotel(days);
-        float totalRate = cheapestHotel.getRates() * days;
+        ArrayList<HotelReservation> bestRatedList = new ArrayList<>();
+        for (HotelReservation hotel : HotelManage.hotelList) {
+            if (hotel.getRatings() >= 4) {
+                bestRatedList.add(hotel);
+            }
+        }
 
-        HotelReservation cheapestHote2 = HotelManage.findCheapestHotel(days);
-        float totalWeekendRate = cheapestHotel.getWeekendRate() * 2;
-
-        if (Day1.equalsIgnoreCase("Saturday") | Day1.equalsIgnoreCase("Sunday") | Day2.equalsIgnoreCase("Saturday") | Day2.equalsIgnoreCase("Sunday")) {
-            System.out.println("Best hotel availble on weekend  " + cheapestHotel.getHotelName() + " having rate $" + totalWeekendRate);
-        } else {
-            System.out.println("Cheapest hotel is " + cheapestHotel.getHotelName() + " having rate $" + totalRate);
+        ArrayList<HotelReservation> bestRated = new ArrayList<>();
+            for (HotelReservation hotel : HotelManage.hotelList) {
+                if (hotel.getRatings() >= 4) {
+                    bestRatedList.add(hotel);
+                }
+            }
+            System.out.println("You can choose any 1 of this Best rated hotels having cheapest cost: \n");
+            bestRatedList.stream();
+            bestRatedList.sort(Comparator.comparing(HotelReservation::getRates));
+            bestRatedList.forEach((HotelReservation h) -> System.out.println("Hotel " + h.getHotelName() + ", with Rating = " + h.getRatings() + ", is available at $ = " + (h.getRates() * days)));
         }
     }
-}
+
+
+
 
