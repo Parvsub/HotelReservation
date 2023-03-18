@@ -55,14 +55,17 @@ public class HotelReservation implements Comparable<HotelReservation> {
         return (this.rates - h.rates);
     }
 
-
     @Override
     public String toString() {
         return "HotelReservation{" +
                 "hotelName='" + hotelName + '\'' +
                 ", rates=" + rates +
+                ", weekendRate=" + weekendRate +
+                ", ratings=" + ratings +
                 '}';
     }
 }
+
+
 
 
