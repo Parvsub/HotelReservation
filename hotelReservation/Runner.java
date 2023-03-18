@@ -52,11 +52,24 @@ public class Runner{
         String checkInDate = scanner.next();
         System.out.println("Enter check-Out Date : (dd/mm/yyyy)");
         String checkOutDate = scanner.next();
+
+        String Day1 = HotelManage.findDayOfWeek(checkInDate);
+        String Day2 = HotelManage.findDayOfWeek(checkOutDate);
+
         int days = HotelManage.findDateDifference(checkInDate, checkOutDate);
-        System.out.println("Number of days stying in hotel " +days);
+        System.out.println("Number of days stying in hotel " + days);
+
         HotelReservation cheapestHotel = HotelManage.findCheapestHotel(days);
         float totalRate = cheapestHotel.getRates() * days;
-        System.out.println("Cheapest hotel is " + cheapestHotel.getHotelName() + " having rate $ " + totalRate);
+
+        HotelReservation cheapestHote2 = HotelManage.findCheapestHotel(days);
+        float totalWeekendRate = cheapestHotel.getWeekendRate() * 2;
+
+        if (Day1.equalsIgnoreCase("Saturday") | Day1.equalsIgnoreCase("Sunday") | Day2.equalsIgnoreCase("Saturday") | Day2.equalsIgnoreCase("Sunday")) {
+            System.out.println("Best hotel availble on weekend  " + cheapestHotel.getHotelName() + " having rate $" + totalWeekendRate);
+        } else {
+            System.out.println("Cheapest hotel is " + cheapestHotel.getHotelName() + " having rate $" + totalRate);
+        }
     }
 }
 
