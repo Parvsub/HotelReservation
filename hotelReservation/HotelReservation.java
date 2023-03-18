@@ -1,71 +1,76 @@
 package com.hotelReservation;
-public class HotelReservation implements Comparable<HotelReservation> {
-    private String hotelName;
-    private int rates;
-    private float weekendRate;
 
-    public int getRatings() {
-        return ratings;
+public class HotelReservation {
+    String name;
+    String rating;
+    int regularWeekendRates;
+    int regularWeekdayRates;
+    int rewardWeekendRates;
+    int rewardWeekdayRates;
+
+
+    public HotelReservation(String name, String rating, int regularWeekendRates, int regularWeekdayRates, int rewardWeekendRates, int rewardWeekdayRates) {
+        this.name = name;
+        this.rating = rating;
+        this.regularWeekendRates = regularWeekendRates;
+        this.regularWeekdayRates = regularWeekdayRates;
+        this.rewardWeekendRates = rewardWeekendRates;
+        this.rewardWeekdayRates = rewardWeekdayRates;
     }
 
-    public void setRatings(int ratings) {
-        this.ratings = ratings;
+    public HotelReservation(){}
+
+    public String getName() {
+        return name;
     }
 
-    private int ratings;
-
-    public HotelReservation(String hotelName, int rates, float weekendRate, int ratings) {
-        this.hotelName = hotelName;
-        this.rates = rates;
-        this.weekendRate = weekendRate;
-        this.ratings = ratings;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public float getWeekendRate() {
-        return weekendRate;
+    public String getRating() {
+        return rating;
     }
 
-    public void setWeekendRate(float weekendRate) {
-        this.weekendRate = weekendRate;
+    public void setRating(String rating) {
+        this.rating = rating;
     }
 
-
-    public HotelReservation() {
-
+    public int getRegularWeekendRates() {
+        return regularWeekendRates;
     }
 
-    public String getHotelName() {
-        return hotelName;
+    public void setRegularWeekendRates(int regularWeekendRates) {
+        this.regularWeekendRates = regularWeekendRates;
     }
 
-    public void setHotelName(String hotelName) {
-        this.hotelName = hotelName;
+    public int getRegularWeekdayRates() {
+        return regularWeekdayRates;
     }
 
-    public int getRates() {
-        return rates;
+    public void setRegularWeekdayRates(int regularWeekdayRates) {
+        this.regularWeekdayRates = regularWeekdayRates;
     }
 
-
-    public void setRates(int rates) {
-        this.rates = rates;
+    public int getRewardWeekendRates() {
+        return rewardWeekendRates;
     }
 
-    public int compareTo(HotelReservation h) {
-        return (this.rates - h.rates);
+    public void setRewardWeekendRates(int rewardWeekendRates) {
+        this.rewardWeekendRates = rewardWeekendRates;
+    }
+
+    public int getRewardWeekdayRates() {
+        return rewardWeekdayRates;
+    }
+
+    public void setRewardWeekdayRates(int rewardWeekdayRates) {
+        this.rewardWeekdayRates = rewardWeekdayRates;
     }
 
     @Override
-    public String toString() {
-        return "HotelReservation{" +
-                "hotelName='" + hotelName + '\'' +
-                ", rates=" + rates +
-                ", weekendRate=" + weekendRate +
-                ", ratings=" + ratings +
-                '}';
+    public String toString()
+    {
+        return this.name+"  ("+this.rating+" star)";
     }
 }
-
-
-
-
